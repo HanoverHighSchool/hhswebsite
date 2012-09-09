@@ -3,6 +3,10 @@ body {
 	padding-bottom: 40px;
 }
 
+.btn {
+	margin-top: 10px;
+}
+
 .btn [class^="icon-"], [class*=" icon-"]{
 	line-height: 1.2em;
 }
