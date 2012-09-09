@@ -1,10 +1,11 @@
 body {
 	padding-top: 60px;
 	padding-bottom: 40px;
+	word-wrap: break-word;
 }
 
-.btn {
-	margin-top: 10px;
+p .btn {
+margin-bottom: 10px;
 }
 
 .btn [class^="icon-"], [class*=" icon-"]{
