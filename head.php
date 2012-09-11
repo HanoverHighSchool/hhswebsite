@@ -5,7 +5,7 @@
 		<title>Hanover High School - Home</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="The website for the Hanover High School - located in Hanover, NH" />
-		<meta name="author" content="Owen Versteeg, Ezekiel Elin, Glenn Smith" />
+		<meta name="author" content="Owen Versteeg, Ezekiel Elin, Glenn Smith, Caleb Winberry, Marco van Gemeren" />
 
 		<!-- Le styles -->
 
