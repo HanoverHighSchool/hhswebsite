@@ -44,7 +44,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</button>
-					<a class="brand" href="index.php">Hanover High School</a>
+					<a class="brand" href="index.php" font-family="Times New Roman">Hanover High School</a>
 					<div class="nav-collapse collapse">
 						<ul class="nav">
 							<li class="active"><a href="index.html">Home</a></li>
