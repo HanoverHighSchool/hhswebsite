@@ -128,20 +128,6 @@
 
 								</ul>
 							</li>
-							<li style="float: right;" class="dropdown">
-							   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login</a>
-							   <div class="dropdown-menu login-dropdown">
-                           <form method="POST" action="login.php">
-                              <input name="username" class="input-small" max-length="64" type="text" placeholder="Username">
-                              <br>
-                              <input name="password" class="input-small" max-length="64" type="password" placeholder="Password">
-                              <label class="checkbox">
-                                 <input name="remember" value="true" type="checkbox">Remember
-                              </label>
-                              <button type="submit" class="btn">Log In</button>
-                           </form>
-                        </div>
-							</li>
 						</ul>
 					</div>
 					<!--/.nav-collapse -->
