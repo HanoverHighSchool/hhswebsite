@@ -22,3 +22,8 @@ margin-bottom: 10px;
    padding-bottom: 0px;
    min-width: 100px;
 }
+
+@media all and (max-width: 415px) {
+ .hero-unit h1 { font-size:45px; }
+ .hero-unit p { font-size: 16px; line-height: 20px; }
+}
