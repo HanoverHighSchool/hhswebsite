@@ -11,3 +11,14 @@ margin-bottom: 10px;
 .btn [class^="icon-"], [class*=" icon-"]{
 	line-height: 1.2em;
 }
+
+::selection, ::moz-selection {
+   background-color: rgb(107, 18, 9);
+   color: rgb(255, 255, 255);
+}
+
+.login-dropdown {
+   padding: 10px;
+   padding-bottom: 0px;
+   min-width: 100px;
+}

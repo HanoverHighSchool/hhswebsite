@@ -291,6 +291,20 @@ border-bottom: 1px solid @grayLight !important;
 div.hero-unit a.btn {
 color:darken(@grayLighter,10%) !important;
 }
+
+html, body {
+   height: 100%;
+}
+
+//Gradients are *fun*
+//#eeeeee -> #dddddd
+body {
+   background:#eeeeee;background:-moz-linear-gradient(top,#eeeeee 0%,#dddddd 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#eeeeee),color-stop(100%,#dddddd));background:-webkit-linear-gradient(top,#eeeeee 0%,#dddddd 100%);background:-o-linear-gradient(top,#eeeeee 0%,#dddddd 100%);background:-ms-linear-gradient(top,#eeeeee 0%,#dddddd 100%);background:linear-gradient(to bottom,#eeeeee 0%,#dddddd 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee',endColorstr='#dddddd',GradientType=0);
+   margin-top: 0px;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+}
+
 // stuff you really shouldn't change
 @gridRowWidth: (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
 @gridColumnWidth1200:     70px;
