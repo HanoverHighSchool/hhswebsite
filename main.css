@@ -54,6 +54,26 @@ margin-bottom: 10px;
     font-style: normal;
 }
 
+.login-box {
+	padding: 10px;
+	width: 105px;
+	min-width: 105px;
+	padding-bottom: 0px;
+}
+
+.login-box form {
+	width: 100px;
+	margin-bottom: 12px;
+}
+
+label[for="remember"] {
+	display: inline;
+}
+
+.login-box input[type="submit"] {
+	width: 100px;
+}
+
 @font-face {
     font-family: 'Museo Slab';
     src: url('assets/fonts/Museo_Slab_500-webfont.eot');
