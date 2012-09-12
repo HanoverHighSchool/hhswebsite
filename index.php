@@ -2,7 +2,7 @@
 <div id="container" class="container">
    <!-- Main hero unit -->
    <div class="hero-unit" id="hero-unit">
-      <h1 style="font-family:Times New Roman; text-shadow: 5px 5px 10px #000000;">Hanover High School</h1>
+      <h1>Hanover High School</h1>
       <p></p>
       <p>Hanover High School is an active learning community that provides broad academic and co-curricular programs. </p>
       <p>We engage students' minds, hearts and voices so that they become educated, caring and responsible adults.</p>
