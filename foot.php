@@ -1,7 +1,7 @@
 			<div>
 				<hr />
 				<footer>
-					<p>&copy; Hanover High School 2012. Mostly created by Owen Versteeg; see contributors <a href="https://github.com/HanoverHighSchool/hhswebsite/graphs/contributors?type=a">here</a>.</p>
+					<p>&copy; Hanover High School 2012. Created by 9th Graders at HHS. A complete list of contributors is <a href="https://github.com/HanoverHighSchool/hhswebsite/graphs/contributors">here</a>.</p>
 					<p>This website is MIT licensed and available on <a href="https://github.com/HanoverHighSchool/hhswebsite">GitHub</a>.</p>
 					<br>
 				</footer>
