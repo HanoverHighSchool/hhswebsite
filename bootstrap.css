@@ -1,10 +1,8 @@
-/*HERO-UNIT*/
 .hero-unit{color:#eeeeee;}
 div.hero-unit a{color:#08c !important;}
 div.hero-unit a:hover{color:#0077b3 !important;}
 div.page-header{border-bottom:1px solid #999999 !important;}
 div.hero-unit a.btn{color:#d5d5d5 !important;}
-/*END HERO-UNIT*/
 article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block;}
 audio,canvas,video{display:inline-block;*display:inline;*zoom:1;}
 audio:not([controls]){display:none;}
