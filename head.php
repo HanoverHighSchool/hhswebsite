@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
 		<meta charset="utf-8" />
-		<title>Hanover High School - Home</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="The website for the Hanover High School - located in Hanover, NH" />
 		<meta name="author" content="Owen Versteeg, Ezekiel Elin, Glenn Smith, Caleb Winberry, Marco van Gemeren" />
@@ -54,7 +50,7 @@
 									<b class="caret"></b>
 								</a>
 								<ul class="dropdown-menu">
-									<li><a href="http://hanoverhigh.us/Hanover/art.html">Art</a></li>
+									<li><a href="art.php">Art</a></li>
 									<li><a href="http://hanoverhigh.us/Hanover/dresden.html">Dresden Plan</a></li>
 									<li><a href="http://hanoverhigh.us/Hanover/english.html">English</a></li>
 									<li><a href="https://sites.google.com/a/hanovernorwichschools.org/health-class/?pli=1">Health</a></li>
