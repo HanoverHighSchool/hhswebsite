@@ -20,8 +20,8 @@
 		<!-- Le fav and touch icons -->
 
 		<link rel="stylesheet/less" type="text/css" href="bootstrap.less">
-		<link rel="stylesheet/less" type="text/css" href="assets/bootstrap/less/bootstrap.less">
-		<link rel="stylesheet/less" type="text/css" href="assets/bootstrap/less/responsive.less">
+		<link rel="stylesheet/less" type="text/css" href="/hhs1-final/assets/bootstrap/less/bootstrap.less">
+		<link rel="stylesheet/less" type="text/css" href="/hhs1-final/assets/bootstrap/less/responsive.less">
 
 		<script src="less-1.3.0.min.js" type="text/javascript"></script>
 
@@ -99,7 +99,7 @@
 									<li><a href="http://hanoverhigh.us/Hanover/map.html">Map</a></li>
 									<li><a href="http://intensive.dresden.us/">March Intensive</a></li>
 									<li><a href="http://hanoverhslibrary.weebly.com/">Media</a></li>
-									<li><a href="/assets/pdf/Program_of_studies.pdf">Program of Studies (PDF)</a></li>
+									<li><a href="/hhs1-final/assets/pdf/Program_of_studies.pdf">Program of Studies (PDF)</a></li>
 									<li><a href="http://www.sau70.org/spotlight/Meal_Time.htm">School Lunch</a></li>
 									<li><a href="http://www.hanoverhigh.us/resources/Handbook.pdf">Student Handbook (PDF)</a></li>
 									<li><a href="http://members.valley.net/~SAU70/">Superintendent</a></li>
