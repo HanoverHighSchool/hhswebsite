@@ -83,8 +83,8 @@
 									<li class="dropdown-submenu">
 										<a tabindex="-1" href="#">Bus Route</a>
 										<ul class="dropdown-menu">
-											<li><a tabindex="-1" href="/assets/pdf/HanoverTransGuide_10_11.pdf">Hanover</a></li>
-											<li><a tabindex="-1" href="/assets/pdf/NorwichTransGuide_10_11.pdf">Norwich</a></li>
+											<li><a tabindex="-1" href="/assets/pdf/Revised_HanoverDresdenTransGuide12-13.pdf">Hanover</a></li>
+											<li><a tabindex="-1" href="/assets/pdf/RevisedNorwichDresdenTransGuide12-13.pdf">Norwich</a></li>
 										</ul>
 									</li>
 									<li><a href="http://hanoverhigh.us/Hanover/calendar.html">Calendar</a></li>
