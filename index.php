@@ -23,13 +23,13 @@
       <p><a class="btn" href="http://ps.dresden.us">View grades! &raquo;</a></p>
       </div>
       <div class="span4">
-         <h2>Read HHS Broadside!</h2>
+         <h2>Read the HHS newspaper!</h2>
          <p>Written by students from HHS, the newspaper is always jam-packed with the latest information about new teachers, sports events, and school happenings. </p>
          <p><a class="btn" href="http://broadside.dresden.us">View the paper! &raquo;</a></p>
       </div>
       <div class="span4">
          <h2>Contribute to this website!</h2>
-         <p>The Hanover High School website is now open source! If you have something interesting to add to it, simply head on over to GitHub and help out! </p>
+         <p>This new website was created by Owen Versteeg (an HHS student) and now is open-source. If you have something interesting to add to it, simply head on over to GitHub and help out! </p>
          <p><a class="btn" href="https://github.com/HanoverHighSchool/hhswebsite">This website on GitHub &raquo;</a></p>
       </div>
    </div>
