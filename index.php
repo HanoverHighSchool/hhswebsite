@@ -29,7 +29,7 @@
       </div>
       <div class="span4">
          <h2>Contribute to this website!</h2>
-         <p>This new website was created by Hanover High School students and is open-source. If you have something interesting to add to it, simply head on over to GitHub and help out! </p>
+         <p>This new website was created by Owen Versteeg (an HHS student) and is open-source. If you have something interesting to add to it, simply head on over to GitHub and help out! </p>
          <p><a class="btn" href="https://github.com/HanoverHighSchool/hhswebsite">This website on GitHub &raquo;</a></p>
       </div>
    </div>
