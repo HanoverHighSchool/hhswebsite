@@ -2,9 +2,12 @@
 <html lang="en">
    <head>
       <title>Hanover High School - Home</title>
-
-<!-- Everything in the <head> except for <title> : Also contains the navbar-->      
-<?php require("head.php"); ?>
+<?php
+/* Make sure this is defined here, and only here! */
+   $isHomePage = true;
+/* Everything in the <head> except for <title> : Also contains the navbar */
+   require("head.php");
+?>
 
 <!-- Start main container -->
 <div id="container" class="container">

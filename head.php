@@ -133,19 +133,7 @@
 								</ul>
 							</li>
 							<!-- FFS, Stop Deleting this. If you want it gone, COMMENT IT OUT -->
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-									Login
-								</a>
-								<div class="dropdown-menu login-box">
-									<form action="login.php" method="POST">
-										<input type="text" class="input-small" name="username">
-										<input type="password" class="input-small" name="password"><br>
-										<input type="checkbox" id="remember" name="remember"> <label for="remember">Remember?</label>
-										<input type="submit" class="btn">
-									</form>
-								</div>
-							</li>
+							<?php include("login-menu.php"); ?>
 						</ul>
 					</div>
 					<!--/.nav-collapse -->
