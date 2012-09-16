@@ -62,7 +62,6 @@ if (isset($debugMenu)) {
 echo("<li><a>Permissions: $status</a></li>");
 $access = ($status & $LoginStatusAccess0 ? ($status & $LoginStatusAccess1 ? ($status & $LoginStatusAccess2 ? ($status & $LoginStatusAccess3 ? 3 : 2) : 1) : 0) : -1);
 echo("<li><a>Access: $access</a></li>");
-echo("<li><a>Showing Warning: " . (isset($_COOKIE["hidewarning"]) ? "No" : "Yes") . "</a></li>");
 ?>
    </ul>
 <?php } ?>
