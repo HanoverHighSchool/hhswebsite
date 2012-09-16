@@ -22,6 +22,7 @@
 		<link rel="stylesheet/less" type="text/css" href="bootstrap.less">
 		<link rel="stylesheet/less" type="text/css" href="/assets/bootstrap/less/bootstrap.less">
 		<link rel="stylesheet/less" type="text/css" href="/assets/bootstrap/less/responsive.less">
+		<link rel="stylesheet/less" type="text/css" href="/assets/bootstrap/less/scrollbar.less">
 
 		<script src="less-1.3.0.min.js" type="text/javascript"></script>
 
@@ -40,10 +41,10 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</button>
-					<a class="brand" href="index.php">Hanover High School</a>
+					<a class="brand" href="index.php">HHS Developer Site</a>
 					<div class="nav-collapse collapse">
 						<ul class="nav">
-							<li class="active"><a href="index.html">Home</a></li>
+							<li class="active"><a href="index.php">Home</a></li>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 									Academics
@@ -140,3 +141,21 @@
 				</div>
 			</div>
 		</div>
+<?php
+if (!isset($_COOKIE["hidewarning"])) {
+?>
+		<div style="margin-left:60px;margin-right:60px;" class="alert alert-danger">
+         <script type="text/javascript">
+         function hideWarning() {
+            var expire = new Date();
+            expire.setDate(expire.getDate() + 3652.5); //10 years
+            document.cookie = "hidewarning=1; expires=" + expire.toUTCString();
+         }
+         </script>
+			<button type="button" class="close" data-dismiss="alert" onclick="hideWarning();">&times;</button>
+			<h4>Warning!</h4>
+			This is the dev site!
+		</div>
+<?php
+}
+?>
