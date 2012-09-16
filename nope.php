@@ -1,5 +1,4 @@
 <?php
-   header("Location: index.php");
 //Do some fancy tracking stuff here for hackers
 ?>
 <html>
