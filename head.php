@@ -82,7 +82,7 @@
 									<li class="divider"></li>
 									<li><a href="http://hanoverhigh.us/Hanover/activities.html">Activities</a></li>
 									<li><a href="http://www.alumniclass.com/hanoverhsnh/">Alumni</a></li>
-									<li class="dropdown-submenu" style="z-index:3;">
+									<li class="dropdown-submenu">
 										<a tabindex="-1" href="#">Bus Route</a>
 										<ul class="dropdown-menu">
 											<li><a tabindex="-1" href="/assets/pdf/Revised_HanoverDresdenTransGuide12-13.pdf">Hanover</a></li>
