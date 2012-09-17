@@ -5,12 +5,12 @@
 
 		<!-- Le styles -->
 
-		<!--<script src="assets/js/operamini.js"></script>-->
+		<script src="assets/js/operamini.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script src="main.js"></script>
-		<link href="bootstrap.css" rel="stylesheet" />
+		<link href="bootstrap.css.gz" rel="stylesheet" />
 		<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.0/js/bootstrap.min.js"></script>
-		<link href="main.css" rel="stylesheet" />
+		<link href="main.css.gz" rel="stylesheet" />
 		<link href="noise.css" rel="stylesheet" />
 
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -20,8 +20,8 @@
 		<!-- Le fav and touch icons -->
 
 		<link rel="stylesheet/less" type="text/css" href="bootstrap.less">
-		<link rel="stylesheet/less" type="text/css" href="/assets/bootstrap/less/bootstrap.less">
-		<link rel="stylesheet/less" type="text/css" href="/assets/bootstrap/less/responsive.less">
+		<link rel="stylesheet/less" href="assets/bootstrap/less/all.less.gz">
+		<link rel="stylesheet/less" href="assets/bootstrap/less/responsive.less">
 
 		<script src="less-1.3.0.min.js" type="text/javascript"></script>
 
@@ -131,20 +131,6 @@
 									<li><a href="http://greenteam.dresden.us/">Hanover Recycles</a></li>
 
 								</ul>
-							</li>
-							<!-- FFS, Stop Deleting this. If you want it gone, COMMENT IT OUT -->
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-									Login
-								</a>
-								<div class="dropdown-menu login-box">
-									<form action="login.php" method="POST">
-										<input type="text" class="input-small" name="username">
-										<input type="password" class="input-small" name="password"><br>
-										<input type="checkbox" id="remember" name="remember"> <label for="remember">Remember?</label>
-										<input type="submit" class="btn">
-									</form>
-								</div>
 							</li>
 						</ul>
 					</div>
