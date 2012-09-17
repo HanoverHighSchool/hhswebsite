@@ -43,7 +43,6 @@
 					<a class="brand" href="index.php">Hanover High School</a>
 					<div class="nav-collapse collapse">
 						<ul class="nav">
-							<li class="active"><a href="index.php">Home</a></li>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 									Academics
@@ -66,7 +65,7 @@
 							</li>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-									Resources
+									Useful Links
 									<b class="caret"></b>
 								</a>
 								<ul class="dropdown-menu">
@@ -77,7 +76,14 @@
 									<li><a href="/assets/pdf/Parent_Survey_2011_12.pdf">Parent Survey 2011-2012</a></li>
 									<li><a href="http://hhstech.org/portal/portalmovie_halfsize.mov">Portal Training Video</a></li>
 									<li><a href="/assets/pdf/Youth_At_Risk_Survey_2011.pdf">Youth at Risk Survey 2011</a></li>
-									<li class="divider"></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									Resources
+									<b class="caret"></b>
+								</a>
+								<ul class="dropdown-menu">
 									<li><a href="http://hanoverhigh.us/Hanover/activities.html">Activities</a></li>
 									<li><a href="http://www.alumniclass.com/hanoverhsnh/">Alumni</a></li>
 									<li class="dropdown-submenu">
