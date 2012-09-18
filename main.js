@@ -26,7 +26,8 @@ var updateTimeout;
 function update() {
    updateTimeout = setTimeout("update();", 500);
    //Change max-height properties for the navbar menus
-   changecss(".navbar .dropdown-menu", "max-height", document.body.clientHeight - 154 + "px");
+   if (document.body)
+      changecss(".navbar .dropdown-menu", "max-height", document.body.clientHeight - 154 + "px");
 }
 
 //Don't forget to call it!

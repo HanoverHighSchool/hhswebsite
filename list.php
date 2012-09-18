@@ -1,3 +1,7 @@
+<?php
+$isAdmin = true;
+require_once("opendb.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -11,11 +15,10 @@
 
    <!-- Main hero unit -->
    <div class="hero-unit" id="hero-unit">
-      <h1>Page Title Here</h1>
-      Page subtitle text here
+      <h1 tag="1"></h1>
    </div>
    <div class="row">
-      Page information here
+   
    </div>
 
 <?php require("foot.php"); ?>

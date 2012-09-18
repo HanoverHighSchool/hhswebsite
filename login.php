@@ -6,9 +6,6 @@ function a_long_time() {
    return 315360000; //10 years
 }
 
-echo("--start debug--<br><br>");
-echo(0);
-
 //We need our connections!
 require("opendb.php");
 
@@ -16,8 +13,6 @@ require("opendb.php");
 $username = $_POST["username"];
 $password = $_POST["password"];
 $remember = $_POST["remember"];
-
-echo(1);
 
 $username = strToLower($connection->escape_string($username));
 $password = $connection->escape_string($password);
@@ -36,15 +31,14 @@ if ($statement = $connection->prepare($query)) {
 
    if ($statement->fetch() === false)
       die("Account does not exist!");
+} else {
+   die("THERE WAS A BAD ERROR!");
 }
 
-echo(2);
 
 $passhash = sha1($salt . sha1($password . $salt));
 
-echo(3);
-
-echo("<br><br>--end debug--<br><br>");
+echo("User: $username<br>Salt: $salt<br>Hash: $passhash<br>Serv: $serverPass<br>");
 
 if ($passhash !== $serverPass)
    die("Invalid password!");

@@ -6,9 +6,9 @@
 		<!-- Le styles -->
 
 		<!--<script src="assets/js/operamini.js"></script>-->
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 		<script src="main.js"></script>
-		<link href="bootstrap.css" rel="stylesheet" />
+		<link href="bootstrap.css.gz" rel="stylesheet" />
 		<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.0/js/bootstrap.min.js"></script>
 		<link href="main.css" rel="stylesheet" />
 		<link href="noise.css" rel="stylesheet" />
@@ -20,8 +20,8 @@
 		<!-- Le fav and touch icons -->
 
 		<link rel="stylesheet/less" type="text/css" href="bootstrap.less">
-		<link rel="stylesheet/less" type="text/css" href="/assets/bootstrap/less/bootstrap.less">
-		<link rel="stylesheet/less" type="text/css" href="/assets/bootstrap/less/responsive.less">
+		<link rel="stylesheet/less" type="text/css" href="/assets/bootstrap/all.less.gz">
+		<link rel="stylesheet/less" type="text/css" href="/assets/bootstrap/responsive.less.gz">
 		<link rel="stylesheet/less" type="text/css" href="/assets/bootstrap/less/scrollbar.less">
 
 		<script src="less-1.3.0.min.js" type="text/javascript"></script>
@@ -31,18 +31,42 @@
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png" />
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png" />
 		<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png" />
-		<script src="prefixfree.min.js"></script>
+
+
+      <script type="text/javascript">
+var tag = new Array();
+<?php
+require_once("opendb.php");
+$all = getAllElements();
+for ($i = 0; $i < count($all); $i ++) {
+   echo("tag[" . ($i + 1) . "] = \"{$all[$i]['text']}\";\n");
+}
+echo("var tags = " . count($all) . ";\n");
+?>
+function checkElement(element) {
+   if (element == null)
+      return;
+   for (var i = 0; i < element.childNodes.length; i ++)
+      checkElement(element.childNodes[i]);
+   if (!(element.getAttribute))
+      return;
+   if (element.getAttribute("tag") !== null) {
+      var val = tag[parseInt(element.getAttribute("tag"))];
+      element.innerHTML = val;
+   }
+}
+      </script>
 	</head>
-	<body>
-		<div class="navbar navbar-inverse navbar-fixed-top">
-			<div class="navbar-inner">
-				<div class="container" id="container">
+	<body editor-enabled="false">
+		<div class="navbar navbar-inverse navbar-fixed-top" editor-enabled="false">
+			<div class="navbar-inner" editor-enabled="false">
+				<div class="container" id="container" editor-enabled="false">
 					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</button>
-					<a class="brand" href="index.php">HHS Developer Site</a>
+					<a class="brand" href="index.php" editor-enabled="false">HHS Developer Site</a>
 					<div class="nav-collapse collapse">
 						<ul class="nav">
 							<li class="active"><a href="index.php">Home</a></li>
@@ -53,17 +77,17 @@
 								</a>
 								<ul class="dropdown-menu">
 									<li><a href="art.php">Art</a></li>
-									<li><a href="http://hanoverhigh.us/Hanover/dresden.html">Dresden Plan</a></li>
-									<li><a href="http://hanoverhigh.us/Hanover/english.html">English</a></li>
+									<li><a href="dresden.php">Dresden Plan</a></li>
+									<li><a href="english.php">English</a></li>
 									<li><a href="https://sites.google.com/a/hanovernorwichschools.org/health-class/?pli=1">Health</a></li>
-									<li><a href="http://hanoverhigh.us/Hanover/industrial.html">Industrial Arts</a></li>
-									<li><a href="http://hanoverhigh.us/Hanover/language.html">Foreign Language</a></li>
-									<li><a href="http://hanoverhigh.us/Hanover/mathematics.html">Mathematics</a></li>
-									<li><a href="http://hanoverhigh.us/Hanover/music.html">Music</a></li>
-									<li><a href="http://hanoverhigh.us/Hanover/sports.html">Physical Education</a></li>
-									<li><a href="http://hanoverhigh.us/Hanover/science.html">Science</a></li>
-									<li><a href="http://hanoverhigh.us/Hanover/social_studies.html">Social Studies</a></li>
-									<li><a href="http://hanoverhigh.us/Hanover/technology.html">Technology</a></li>
+									<li><a href="industrial.php">Industrial Arts</a></li>
+									<li><a href="language.php">Foreign Language</a></li>
+									<li><a href="mathematics.php">Mathematics</a></li>
+									<li><a href="music.php">Music</a></li>
+									<li><a href="sports.php">Physical Education</a></li>
+									<li><a href="science.php">Science</a></li>
+									<li><a href="social_studies.php">Social Studies</a></li>
+									<li><a href="technology.php">Technology</a></li>
 								</ul>
 							</li>
 							<li class="dropdown">
@@ -72,13 +96,13 @@
 									<b class="caret"></b>
 								</a>
 								<ul class="dropdown-menu">
-									<li><a href="/assets/pdf/Schedule.pdf">Daily Schedule</a></li>
+									<li><a href="http://www.hanoverhigh.us/resources/Schedule.pdf">Daily Schedule</a></li>
 									<li><a href="http://sites.google.com/a/hanovernorwichschools.org/portfolios-cc/home">Core Competencies</a></li>
 									<li><a href="http://www.hartfordschools.net/Schools/HACTC/tabid/56/Default.aspx">Hartford Career and Tech Center</a></li>
-									<li><a href="/assets/pdf/Profile_11.pdf">HHS Profile 2011</a></li>
-									<li><a href="/assets/pdf/Parent_Survey_2011_12.pdf">Parent Survey 2011-2012</a></li>
+									<li><a href="http://www.hanoverhigh.us/resources/Profile_11.pdf">HHS Profile 2011</a></li>
+									<li><a href="http://www.hanoverhigh.us/resources/Parent_Survey_2011_12.pdf">Parent Survey 2011-2012</a></li>
 									<li><a href="http://hhstech.org/portal/portalmovie_halfsize.mov">Portal Training Video</a></li>
-									<li><a href="/assets/pdf/Youth_At_Risk_Survey_2011.pdf">Youth at Risk Survey 2011</a></li>
+									<li><a href="http://www.hanoverhigh.us/resources/Youth_At_Risk_Survey_2011.pdf">Youth at Risk Survey 2011</a></li>
 									<li class="divider"></li>
 									<li><a href="http://hanoverhigh.us/Hanover/activities.html">Activities</a></li>
 									<li><a href="http://www.alumniclass.com/hanoverhsnh/">Alumni</a></li>
@@ -103,7 +127,7 @@
 									<li><a href="http://hanoverhslibrary.weebly.com/">Media</a></li>
 									<li><a href="/assets/pdf/Program_of_studies.pdf">Program of Studies (PDF)</a></li>
 									<li><a href="http://www.sau70.org/spotlight/Meal_Time.htm">School Lunch</a></li>
-									<li><a href="/assets/pdf/Handbook.pdf">Student Handbook (PDF)</a></li>
+									<li><a href="http://www.hanoverhigh.us/resources/Handbook.pdf">Student Handbook (PDF)</a></li>
 									<li><a href="http://members.valley.net/~SAU70/">Superintendent</a></li>
 
 								</ul>
@@ -145,7 +169,7 @@
 <?php
 if (!isset($_COOKIE["hidewarning"])) {
 ?>
-		<div style="margin-left:60px;margin-right:60px;" class="alert alert-danger">
+		<div style="margin-left:60px;margin-right:60px;" class="alert alert-danger" editor-enabled="false">
          <script type="text/javascript">
          function hideWarning() {
             var expire = new Date();
@@ -153,8 +177,8 @@ if (!isset($_COOKIE["hidewarning"])) {
             document.cookie = "hidewarning=1; expires=" + expire.toUTCString();
          }
          </script>
-			<button type="button" class="close" data-dismiss="alert" onclick="hideWarning();">&times;</button>
-			<h4>Warning!</h4>
+			<button type="button" class="close" data-dismiss="alert" onclick="hideWarning();" editor-enabled="false">&times;</button>
+			<h4 editor-enabled="false">Warning!</h4>
 			This is the dev site!
 		</div>
 <?php

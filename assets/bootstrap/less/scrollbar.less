@@ -1,39 +1,25 @@
 .gradientV (@start, @end) {
-   background:@start;
-   background:-moz-linear-gradient(top,@start 0%,@end 100%);
-   background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,@start),color-stop(100%,@end));
-   background:-webkit-linear-gradient(top,@start 0%,@end 100%);
-   background:-o-linear-gradient(top,@start 0%,@end 100%);
-   background:-ms-linear-gradient(top,@start 0%,@end 100%);
-   background:linear-gradient(to bottom,@start 0%,@end 100%);
-   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='@start',endColorstr='@end',GradientType=0);
+   background:@start;background:-moz-linear-gradient(top,@start 0%,@end 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,@start),color-stop(100%,@end));background:-webkit-linear-gradient(top,@start 0%,@end 100%);background:-o-linear-gradient(top,@start 0%,@end 100%);background:-ms-linear-gradient(top,@start 0%,@end 100%);background:linear-gradient(to bottom,@start 0%,@end 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='@start',endColorstr='@end',GradientType=0);
 }
 
 .gradientH (@start, @end) {
-   background:@start;
-   background:-moz-linear-gradient(top,@start 0%,@end 100%);
-   background:-webkit-gradient(linear,left top,right top,color-stop(0%,@start),color-stop(100%,@end));
-   background:-webkit-linear-gradient(top,@start 0%,@end 100%);
-   background:-o-linear-gradient(top,@start 0%,@end 100%);
-   background:-ms-linear-gradient(top,@start 0%,@end 100%);
-   background:linear-gradient(to bottom,@start 0%,@end 100%);
-   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='@start',endColorstr='@end',GradientType=0);
+   background:@start;background:-moz-linear-gradient(top,@start 0%,@end 100%);background:-webkit-gradient(linear,left top,right top,color-stop(0%,@start),color-stop(100%,@end));background:-webkit-linear-gradient(top,@start 0%,@end 100%);background:-o-linear-gradient(top,@start 0%,@end 100%);background:-ms-linear-gradient(top,@start 0%,@end 100%);background:linear-gradient(to bottom,@start 0%,@end 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='@start',endColorstr='@end',GradientType=0);
 }
 
 ::-webkit-scrollbar {
-   width: 18px;
-   height: 18px;
+   width: 12px;
+   height: 12px;
 }
 
 ::-webkit-scrollbar-track {
    padding-top: 10px;
    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.6);
-   border-radius: 2px;
+   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-   box-shadow: inset 0 0 8px rgba(0,0,0,0.6);
-   border-radius: 2px;
+   -webkit-box-shadow: inset 0 0 8px rgba(0,0,0,0.6);
+   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:vertical {

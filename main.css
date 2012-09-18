@@ -95,3 +95,12 @@ label[for="remember"] {
     font-weight: normal;
     font-style: normal;
 }
+
+#editor {
+   display: block;
+   border: 2px inset #666;
+}
+
+.row {
+   margin-left: 0px;
+}

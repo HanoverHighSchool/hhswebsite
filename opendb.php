@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_URI"] == "/opendb.php") {
 
 require("config.php");
 
-$connection = mysqli_connect($mysql_host, $mysql_user, $mysql_pass, $mysql_data) or die("Could not connect!");
+$connection = new mysqli($mysql_host, $mysql_user, $mysql_pass, $mysql_data) or die("Could not connect!");
 
 register_shutdown_function("exiting");
 
@@ -88,8 +88,90 @@ function loginStatus($username = NULL, $passhash = NULL) {
       $ret = $ret | $LoginStatusSeeMore;
       break;
    }
+   
+   if ($ret & $LoginStatusOK) {
+      $query = "UPDATE `users` SET `lastlogin` = CURRENT_TIMESTAMP WHERE `username` = '$username'";
+      $connection->query($query);
+   }
 
    return $ret;
+}
+
+$globalLogin = loginStatus();
+
+function getElement($num) {
+   global $globalLogin, $connection;
+
+   $pagename = strToLower($connection->escape_string(basename($_SERVER["PHP_SELF"], ".php")));
+
+   $num = intVal($num);
+
+   $query = "SELECT `value`" . ($globalLogin & $LoginStatusSeeMore ? ", `lastUpdate`, `lastUser`, `lastIP` " : " ") . "FROM `$pagename-index` WHERE `field` = $num;";
+
+   $value = null;
+   $lastUpdate = null;
+   $lastUser = null;
+   $lastIP = null;
+   if ($statement = $connection->prepare($query)) {
+      $statement->execute();
+      if ($globalLogin & $LoginStatusSeeMore)
+         $statement->bind_result($value, $lastUpdate, $lastUser, $lastIP);
+      else
+         $statement->bind_result($value);
+
+      $result = $connection->query($query);
+
+      if ($statement->fetch() === false)
+         return array("text" => "");
+      $statement->close();
+   } else
+      return array("text" => "");
+
+   if ($globalLogin & $LoginStatusSeeMore)
+      return array("text" => $value, "lastUpdate" => $lastUpdate, "lastUser" => $lastUser, "lastIP" => $lastIP);
+   else
+      return array("text" => $value);
+}
+
+function getAllElements($page = NULL) {
+   if ($page == NULL)
+      $page = $_SERVER["PHP_SELF"];
+   global $globalLogin, $connection, $LoginStatusSeeMore;
+
+   $pagename = strToLower($connection->escape_string(basename($page, ".php")));
+
+
+   $query = "SELECT `value`" . ($globalLogin & $LoginStatusSeeMore ? ", `lastUpdate`, `lastUser`, `lastIP` " : " ") . "FROM `$pagename-index`";
+
+   $value = null;
+   $lastUpdate = null;
+   $lastUser = null;
+   $lastIP = null;
+   $return = array();
+   if ($statement = $connection->prepare($query)) {
+      $statement->execute();
+      if ($globalLogin & $LoginStatusSeeMore)
+         $statement->bind_result($value, $lastUpdate, $lastUser, $lastIP);
+      else
+         $statement->bind_result($value);
+
+      $returns = 0;
+      while ($statement->fetch()) {
+         if ($globalLogin & $LoginStatusSeeMore)
+            $return[$returns ++] = array("text" => $value, "lastUpdate" => $lastUpdate, "lastUser" => $lastUser, "lastIP" => $lastIP);
+         else
+            $return[$returns ++] = array("text" => $value);
+      }
+      $statement->close();
+   } else
+      return null;
+
+   return $return;
+}
+
+function tag($num) {
+   $element = getElement($num);
+   return html_entity_decode($element["text"]);
 }
 
 ?>
