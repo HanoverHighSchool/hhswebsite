@@ -1,6 +1,5 @@
 <?php
-
-if (isset($_GET["name"])) {
+if ($_GET["name"] != "" && !(file_exists($_GET["name"].".php"))) {
 
    require_once("opendb.php");
 
@@ -12,6 +11,7 @@ if (isset($_GET["name"])) {
    }
 
    $pageName = $connection->escape_string($_GET["name"]);
+   $pageName = strtolower($pageName);
 
    $query = "CREATE TABLE IF NOT EXISTS `$pageName-index` (`field` INT NOT NULL, `value` VARCHAR(1024) NOT NULL, `lastUpdate` TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, `lastUser` VARCHAR(64) NOT NULL, `lastIP` VARCHAR(32) NOT NULL) ENGINE = MYISAM;";
 
@@ -24,9 +24,12 @@ if (isset($_GET["name"])) {
 
    header("Location: $pageName.php");
 } else {
-      echo "<form method=\"GET\" action=\"create.php\">";
-      echo "<label for=\"name\">Page Name:</label><input type=\"text\" name=\"name\" maxlength=\"16\"><br>";
-      echo "<input type=\"submit\" value=\"Create Page\">";
-      echo "</form>";
+   if (file_exists($_GET["name"].".php")) {
+      echo "The page <b>".$_GET["name"].".php</b> already exists!<br><br>";
+   }
+   echo "<form method=\"GET\" action=\"create.php\">";
+   echo "<label for=\"name\">Page Name:</label><input type=\"text\" name=\"name\" maxlength=\"16\"><br>";
+   echo "<input type=\"submit\" value=\"Create Page\">";
+   echo "</form>";
 }
 ?>
