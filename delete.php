@@ -8,7 +8,7 @@ $status = loginStatus();
 
 $refer = strToLower($connection->escape_string(basename($_SERVER["HTTP_REFERER"])));
 
-if (!($status & $LoginStatusCanEdit)) {
+if (!($status & $LoginStatusCanEdit) || $refer == "") {
 	header("Location: nope.php");
 	die();
 }

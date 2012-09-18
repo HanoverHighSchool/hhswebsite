@@ -88,7 +88,7 @@ function loginStatus($username = NULL, $passhash = NULL) {
       $ret = $ret | $LoginStatusSeeMore;
       break;
    }
-   
+
    if ($ret & $LoginStatusOK) {
       $query = "UPDATE `users` SET `lastlogin` = CURRENT_TIMESTAMP WHERE `username` = '$username'";
       $connection->query($query);
@@ -140,10 +140,10 @@ function getAllElements($page = NULL) {
 
    $pagename = strToLower($connection->escape_string(basename($page, ".php")));
 
-
-   $query = "SELECT `value`" . ($globalLogin & $LoginStatusSeeMore ? ", `lastUpdate`, `lastUser`, `lastIP` " : " ") . "FROM `$pagename-index`";
+   $query = "SELECT `field`, `value`" . ($globalLogin & $LoginStatusSeeMore ? ", `lastUpdate`, `lastUser`, `lastIP` " : " ") . "FROM `$pagename-index`";
 
    $value = null;
+   $number = null;
    $lastUpdate = null;
    $lastUser = null;
    $lastIP = null;
@@ -151,16 +151,16 @@ function getAllElements($page = NULL) {
    if ($statement = $connection->prepare($query)) {
       $statement->execute();
       if ($globalLogin & $LoginStatusSeeMore)
-         $statement->bind_result($value, $lastUpdate, $lastUser, $lastIP);
+         $statement->bind_result($number, $value, $lastUpdate, $lastUser, $lastIP);
       else
-         $statement->bind_result($value);
+         $statement->bind_result($number, $value);
 
       $returns = 0;
       while ($statement->fetch()) {
          if ($globalLogin & $LoginStatusSeeMore)
-            $return[$returns ++] = array("text" => $value, "lastUpdate" => $lastUpdate, "lastUser" => $lastUser, "lastIP" => $lastIP);
+            $return[$returns ++] = array("text" => $value, "number" => $number, "lastUpdate" => $lastUpdate, "lastUser" => $lastUser, "lastIP" => $lastIP);
          else
-            $return[$returns ++] = array("text" => $value);
+            $return[$returns ++] = array("text" => $value, "number" => $number);
       }
       $statement->close();
    } else
@@ -173,5 +173,30 @@ function tag($num) {
    $element = getElement($num);
    return html_entity_decode($element["text"]);
 }
+
+function record() {
+   global $connection;
+
+   $ip = $_SERVER["REMOTE_ADDR"];
+
+   $query = "SELECT `hits` FROM `hits` WHERE `ip` = '$ip'";
+   $hits = 0;
+   if ($statement = $connection->prepare($query)) {
+      $statement->execute();
+      $statement->bind_result($hits);
+
+      if (!($statement->fetch())) {
+         $query = "INSERT INTO `hits` (`hits`, `ip`, `firstHit`) VALUES (0, '$ip', CURRENT_TIMESTAMP)";
+         $connection->query($query);
+      }
+   }
+
+   $hits = intVal($hits) + 1;
+
+   $query = "UPDATE `hits` SET `hits` = '$hits', `lastHit` = CURRENT_TIMESTAMP WHERE `ip` = '$ip' LIMIT 1;";
+   $connection->query($query);
+}
+
+record();
 
 ?>

@@ -16,9 +16,10 @@ require_once("opendb.php");
    <!-- Main hero unit -->
    <div class="hero-unit" id="hero-unit">
       <h1 tag="1"></h1>
+      <p tag="2"></p>
    </div>
-   <div class="row">
-   
+   <div class="row" tag="3">
+
    </div>
 
 <?php require("foot.php"); ?>

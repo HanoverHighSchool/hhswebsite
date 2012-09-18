@@ -1,3 +1,4 @@
+<?php require_once("opendb.php"); ?>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="The website for the Hanover High School - located in Hanover, NH" />
@@ -35,11 +36,11 @@
 
       <script type="text/javascript">
 var tag = new Array();
+var curPage = "<?php echo(strToLower($connection->escape_string(basename($_SERVER["PHP_SELF"], ".php")))); ?>";
 <?php
-require_once("opendb.php");
 $all = getAllElements();
 for ($i = 0; $i < count($all); $i ++) {
-   echo("tag[" . ($i + 1) . "] = \"{$all[$i]['text']}\";\n");
+   echo("tag[{$all[$i]['number']}] = \"{$all[$i]['text']}\";\n");
 }
 echo("var tags = " . count($all) . ";\n");
 ?>

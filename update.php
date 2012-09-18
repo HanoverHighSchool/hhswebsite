@@ -8,10 +8,11 @@ for ($i = 1; $i < $tags + 1; $i ++) {
 }
 
 if ($globalLogin & $LoginStatusCanEdit) {
-   $isHome = $_SERVER["HTTP_REFERRER"] == "";
+   $isHome = $_POST["page"] == "index";
+   echo("\nPushing Update to {$_POST['page']}");
    echo("\n Is home: $isHome");
 
-   $table = $isHome ? "index" : strToLower($connection->escape_string(basename($_SERVER["HTTP_REFERRER"], ".php")));
+   $table = $isHome ? "index" : strToLower($connection->escape_string(basename($_POST["page"], ".php")));
 
    if ($isHome && !($globalLogin & $LoginStatusCanHome))
       die("Nope!");

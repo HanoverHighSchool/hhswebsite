@@ -25,10 +25,10 @@ var clickedNode = null;
 function h(element) {
    if (element.h)
       return;
-    
+
 	if (!element.getAttribute("tag"))
 		return;
-	
+
    element.oldHref = element.getAttribute("href");
    if (!element.classList.contains("btn")) {
       element.oldTC = element.style.color;
@@ -119,6 +119,7 @@ function saveEdits() {
    for (var i = 0; i < tags; i ++) {
       send += "&tag[" + i + "]=" + encodeURIComponent(tag[i + 1]);
    }
+   send += "&page=" + curPage;
 
    $.post("/update.php", send, function() {
       alert("Changes saved!");

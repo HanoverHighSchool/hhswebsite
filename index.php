@@ -33,7 +33,9 @@
       <div class="span4">
          <h2 tag="8"></h2>
          <p tag="9"></p>
-         <p><a class="btn" href="https://github.com/HanoverHighSchool/hhswebsite">This website on GitHub &raquo;</a></p>
+         <p><a class="btn" href="https://github.com/HanoverHighSchool/hhswebsite">This website on GitHub &raquo;</a><br>
+         <p tag="10"></p>
+         <a class="btn" href="feedback.php">Tell us What you Think &raquo;</a></p>
       </div>
    </div>
 <?php require("foot.php"); ?>
