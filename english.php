@@ -23,7 +23,7 @@
       <br>
       <a href="mailto:Tanya.Cluff@dresden.us">Tanya Cluff</a>
       <br>
-      <a href="mailto:Marie.D'Amato@dresden.us">Marie D&#39;Amato</a> (<a href="http://sites.google.com/a/hanovernorwichschools.org/marie-d-amato/">Homepage</a>)
+      <a href="mailto:Marie.D'Amato@dresden.us">Marie D'Amato</a> (<a href="http://sites.google.com/a/hanovernorwichschools.org/marie-d-amato/">Homepage</a>)
       <br>
       <a href="mailto:Anna.Gado@dresden.us">Anna Gado</a>
       <br>
