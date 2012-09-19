@@ -12,7 +12,9 @@
    <!-- Main hero unit -->
    <div class="hero-unit" id="hero-unit">
       <h1 tag="1"></h1>
-      <p tag="2"></p>
+      <p tag="2">
+      <a href="mailto:Dave.Holloway@dresden.us">Dave Holloway</a>
+      </p>
    </div>
    <div class="row" tag="3">
 
