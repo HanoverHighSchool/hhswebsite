@@ -139,7 +139,7 @@ function checkElement(element) {
 									<b class="caret"></b>
 								</a>
 								<ul class="dropdown-menu">
-									<li><a href="http://schedules.schedulestar.com/Hanover-High-School-Hanover-NH/">Sports Calendar</a></li>
+									<li><a href="http://www.hanoverhigh.us/Hanover/calendar.html">Calendar</a></li>
 									<li><a href="http://hanoverhigh.us/Hanover/sports.html">Sports Home</a></li>
 								</ul>
 							</li>

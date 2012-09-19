@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>Hanover Highschool - Music</title>
+      <title>Hanover Highschool - Ezekiel</title>
 
 <!-- Everything in the <head> except for <title> : Also contains the navbar-->
 <?php require("head.php"); ?>
