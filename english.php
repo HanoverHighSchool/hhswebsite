@@ -11,7 +11,7 @@
 
    <!-- Main hero unit -->
    <div class="hero-unit" id="hero-unit">
-      <h1 tag="1"></h1>
+      <h1 tag="1">English</h1>
       <p tag="2">
       <a href="mailto:Carol.Ahern@dresden.us">Carol Ahern</a> (Ed. Assistant)
       <br>
