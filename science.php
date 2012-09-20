@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>Hanover Highschool - Science</title>
+      <title>Hanover High School - Science</title>
 
 <!-- Everything in the <head> except for <title> : Also contains the navbar-->
 <?php require("head.php"); ?>
