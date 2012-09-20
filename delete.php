@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>Hanover Highschool - Delete Page</title>
+      <title>Hanover High School - Delete Page</title>
 
 <!-- Everything in the <head> except for <title> : Also contains the navbar-->
 <?php 
