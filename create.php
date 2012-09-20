@@ -18,14 +18,7 @@
    $pageTitle = $connection->escape_string($_POST["title"]);
    $pageName = strtolower($pageName);
 	require("head.php"); 
-?>
-
-<!-- Start main container -->
-<div id="container" class="container">
-
-   <!-- Main hero unit -->
-   <div class="hero-unit" id="hero-unit">
-   	<?php
+	
 	if ($_POST["name"] != "" && !(file_exists($_POST["name"].".php"))) {
 
 	   	$query = "CREATE TABLE IF NOT EXISTS `$pageName-index` (`field` INT NOT NULL, `value` VARCHAR(1024) NOT NULL, `lastUpdate` TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, `lastUser` VARCHAR(64) NOT NULL, `lastIP` VARCHAR(32) NOT NULL) ENGINE = MYISAM;";
@@ -46,6 +39,17 @@
 	   $connection->query($query);
 
 	   header("Location: $pageName.php");
+	}
+?>
+
+<!-- Start main container -->
+<div id="container" class="container">
+
+   <!-- Main hero unit -->
+   <div class="hero-unit" id="hero-unit">
+   	<?php
+	if ($_POST["name"] != "" && !(file_exists($_POST["name"].".php"))) {
+		//code to add pages is in the head for redirection purposes.
 	} else {
 	   if (file_exists($pageName.".php")) {
 	      echo "The page <b>".$pageName.".php</b> already exists!<br><br>";
@@ -68,3 +72,4 @@
    </div>
 
 <?php require("foot.php"); ?>
+
