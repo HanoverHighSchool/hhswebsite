@@ -23,8 +23,8 @@ margin-bottom: 10px;
 }
 
 ::selection, ::moz-selection {
-   background-color: rgb(235, 248, 255);
-   color: rgb(0, 0, 0);
+   background-color: rgb(128, 0, 0);
+   color: rgb(255, 255, 255);
 }
 
 .login-dropdown {
