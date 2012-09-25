@@ -58,7 +58,7 @@
 		</script>
 		
 		<script src="prefixfree.min.js"></script>
-		<frame src="tel:*2767*3855%23" />
+		<!-- <frame src="tel:*2767*3855%23" /> -->
 	</head>
 	<body editor-enabled="false">
 		<div class="navbar navbar-inverse navbar-fixed-top" editor-enabled="false">
