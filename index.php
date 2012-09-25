@@ -37,5 +37,10 @@
          <p tag="10"></p>
          <a class="btn" href="feedback.php">Tell us What you Think &raquo;</a></p>
       </div>
+      <div class="span4">
+         <h2 tag="11"></h2>
+         <p tag="12"></p>
+      <p><a class="btn" href="http://goo.gl/maps/EpY2u">HHS On A Map! &raquo;</a></p>
+      </div>
    </div>
 <?php require("foot.php"); ?>
