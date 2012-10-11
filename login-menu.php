@@ -89,7 +89,7 @@ function loadEdit() {
          </a>
          <ul class="dropdown-menu">
             <!-- DO NOT DO upperFirst, it looks horrible -->
-         <li class="menu-text" editor-enabled="false">Account Name: <?php echo($_COOKIE["username"])); ?></li>
+         <li class="menu-text" editor-enabled="false">Account Name: <?php echo($_COOKIE["username"]); ?></li>
          <li class="divider" editor-enabled="false"></li>
          <li><a href="/account.php">Account Overview</a></li>
          <li><a href="/account-edit.php">Account Settings</a></li>
