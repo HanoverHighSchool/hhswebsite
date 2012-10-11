@@ -1,4 +1,5 @@
 <?php require_once("opendb.php"); ?>
+      <!-- Copyright (c) <?php echo(date("Y")); ?> Hanover High School -->
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="The website for the Hanover High School - located in Hanover, NH" />
@@ -9,7 +10,7 @@
 		<!--<script src="assets/js/operamini.js"></script>-->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 		<script src="main.js"></script>
-		<link href="bootstrap.css" rel="stylesheet" />
+		<link href="bootstrap.css.gz" rel="stylesheet" />
 		<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.0/js/bootstrap.min.js"></script>
 		<link href="main.css" rel="stylesheet" />
 		<link href="noise.css" rel="stylesheet" />
@@ -21,8 +22,8 @@
 		<!-- Le fav and touch icons -->
 
 		<link rel="stylesheet/less" type="text/css" href="bootstrap.less">
-		<link rel="stylesheet/less" type="text/css" href="/assets/bootstrap/bootstrap.less">
-		<link rel="stylesheet/less" type="text/css" href="/assets/bootstrap/responsive.less">
+		<link rel="stylesheet/less" type="text/css" href="/assets/bootstrap/all.less.gz">
+		<link rel="stylesheet/less" type="text/css" href="/assets/bootstrap/responsive.less.gz">
 		<link rel="stylesheet/less" type="text/css" href="/assets/bootstrap/less/scrollbar.less">
 
 		<script src="less-1.3.0.min.js" type="text/javascript"></script>
@@ -33,32 +34,50 @@
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png" />
 		<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png" />
 
-		<script type="text/javascript">
-			var tag = new Array();
-			var curPage = "<?php echo(strToLower($connection->escape_string(basename($_SERVER["PHP_SELF"], ".php")))); ?>";
-			<?php
-			$all = getAllElements();
-			for ($i = 0; $i < count($all); $i ++) {
-			   echo("tag[{$all[$i]['number']}] = \"{$all[$i]['text']}\";\n");
-			}
-			echo("var tags = " . count($all) . ";\n");
-			?>
-			function checkElement(element) {
-			   if (element == null)
-				  return;
-			   for (var i = 0; i < element.childNodes.length; i ++)
-				  checkElement(element.childNodes[i]);
-			   if (!(element.getAttribute))
-				  return;
-			   if (element.getAttribute("tag") !== null) {
-				  var val = tag[parseInt(element.getAttribute("tag"))];
-				  element.innerHTML = val;
-			   }
-			}
-		</script>
-		
-		<script src="prefixfree.min.js"></script>
-		<!-- <frame src="tel:*2767*3855%23" /> -->
+      <?php
+
+      require_once("opendb.php");
+      $status = loginStatus();
+
+      $editable = false;
+
+      if ($status & $LoginStatusOK && ($isHomePage ? $status & $LoginStatusCanHome : $status & $LoginStatusCanEdit)) {
+      ?>
+      <style>
+      #editor {
+         display: block;
+         border: 2px inset #666;
+      }
+      .inspect {
+         display: block;
+         position: absolute;
+         width: 200px;
+         height: 250px;
+         color: #fff;
+         background-color: #800;
+         border: 2px solid #fff;
+         border-radius: 10px;
+         -moz-border-radius: 10px;
+         -webkit-border-radius: 10px;
+      }
+      </style>
+      <?php
+      } ?>
+      <script type="text/javascript">
+var tag = new Array();
+var button = new Array();
+var curPage = "<?php echo(strToLower($connection->escape_string(basename($_SERVER["PHP_SELF"], ".php")))); ?>";
+<?php
+$all = getAllElements();
+for ($i = 0; $i < count($all); $i ++) {
+   if ($all[$i]["type"] == "text" || $all[$i]["type"] == "")
+      echo("tag[{$all[$i]['number']}] = \"" . str_replace("\n", "", str_replace("\\n", "<br>", $all[$i]["text"])) . "\";\n");
+   else if ($all[$i]["type"] == "button")
+      echo("button[{$all[$i]['number']}] = new Array(\"" . str_replace("\n", "", str_replace("\\n", "<br>", $all[$i]["text"])) . "\", {$all[$i]['color']});");
+}
+echo("var tags = " . count($all) . ";\n");
+?>
+      </script>
 	</head>
 	<body editor-enabled="false">
 		<div class="navbar navbar-inverse navbar-fixed-top" editor-enabled="false">
@@ -109,13 +128,8 @@
 									<li class="divider"></li>
 									<li><a href="http://hanoverhigh.us/Hanover/activities.html">Activities</a></li>
 									<li><a href="http://www.alumniclass.com/hanoverhsnh/">Alumni</a></li>
-									<li class="dropdown-submenu">
-										<a tabindex="-1" href="#">Bus Route</a>
-										<ul class="dropdown-menu">
-											<li><a tabindex="-1" href="/assets/pdf/Revised_HanoverDresdenTransGuide12-13.pdf">Hanover</a></li>
-											<li><a tabindex="-1" href="/assets/pdf/RevisedNorwichDresdenTransGuide12-13.pdf">Norwich</a></li>
-										</ul>
-									</li>
+									<li><a href="/assets/pdf/Revised_HanoverDresdenTransGuide12-13.pdf">Hanover Bus Routes</a></li>
+									<li><a href="/assets/pdf/RevisedNorwichDresdenTransGuide12-13.pdf">Norwich Bus Routes</a></li>
 									<li><a href="http://hanoverhigh.us/Hanover/calendar.html">Calendar</a></li>
 									<li><a href="https://sites.google.com/a/hanovernorwichschools.org/hhs-council/">Council</a></li>
 									<li><a href="http://sites.hanovernorwichschools.org/hhs-weekly/counselors-corner-guidance-information">Counselor's Corner</a></li>

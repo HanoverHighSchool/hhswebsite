@@ -8,6 +8,10 @@ if ($_SERVER["REQUEST_URI"] == "/login-menu.php") {
    die();
 }
 
+function upperFirst($str) {
+   echo(strToUpper(subStr($str, 0, 1)) . subStr($str, 1));
+}
+
 require_once("opendb.php");
 
 $status = loginStatus();
@@ -35,9 +39,25 @@ function loadEdit() {
 
    var script = document.createElement("script");
    script.setAttribute("type", "text/javascript");
-   script.setAttribute("src", "edit-support.php");
+   script.setAttribute("src", "/assets/ckeditor/ckeditor.js");
 
-   editLI.parentNode.appendChild(script);
+   document.getElementsByTagName("head")[0].appendChild(script);
+
+   script.onload = function() {
+      var script1 = document.createElement("script");
+      script1.setAttribute("type", "text/javascript");
+      script1.setAttribute("src", "/assets/ckeditor/adapters/jquery.js");
+
+      document.getElementsByTagName("head")[0].appendChild(script1);
+
+      script1.onload = function() {
+      var script2 = document.createElement("script");
+         script2.setAttribute("type", "text/javascript");
+         script2.setAttribute("src", "/edit-support.js.php");
+
+         document.getElementsByTagName("head")[0].appendChild(script2);
+      };
+   };
 }
 
 </script>
@@ -54,6 +74,9 @@ function loadEdit() {
             <?php } ?>
             <li><a href="/list.php" editor-enabled="false">Page Listing</a></li>
             <?php }
+         if ($status & $LoginStatusAccess3) { ?>
+            <li><a href="/accounts.php" editor-enabled="false">Account Listing</a></li>
+         <?php }
          ?>
          </ul>
       </li>
@@ -65,6 +88,9 @@ function loadEdit() {
             Account <b class="caret" editor-enabled="false"></b>
          </a>
          <ul class="dropdown-menu">
+            <!-- DO NOT DO upperFirst, it looks horrible -->
+         <li class="menu-text" editor-enabled="false">Account Name: <?php echo($_COOKIE["username"])); ?></li>
+         <li class="divider" editor-enabled="false"></li>
          <li><a href="/account.php">Account Overview</a></li>
          <li><a href="/account-edit.php">Account Settings</a></li>
          <li><a href="/logout.php">Log Out</a></li>
@@ -99,11 +125,10 @@ if (isset($debugMenu)) {
    </a>
    <ul class="dropdown-menu">
 <?php
-echo("<li><a>Permissions: $status</a></li>");
+echo("<li class=\"menu-text\">Permissions: $status</li>");
 $access = ($status & $LoginStatusAccess0 ? ($status & $LoginStatusAccess1 ? ($status & $LoginStatusAccess2 ? ($status & $LoginStatusAccess3 ? 3 : 2) : 1) : 0) : -1);
-echo("<li><a>Access: $access</a></li>");
-echo("<li><a>Showing Warning: " . (isset($_COOKIE["hidewarning"]) ? "No" : "Yes") . "</a></li>");
+echo("<li class=\"menu-text\">Access: $access</li>");
+echo("<li class=\"menu-text\">Showing Warning: " . (isset($_COOKIE["hidewarning"]) ? "No" : "Yes") . "</li>");
 ?>
-<li><a href="http://cl.ly/image/0R2a213c3Y1N">Why I'm not Content Manager</a></li.
    </ul>
 <?php } ?>
