@@ -4,7 +4,7 @@
       <title>Hanover High School - Delete Page</title>
 
 <!-- Everything in the <head> except for <title> : Also contains the navbar-->
-<?php 
+<?php
 	require_once("opendb.php");
 
 	$response = strtolower($connection->escape_string($_POST["response"]));
@@ -12,14 +12,14 @@
 	$status = loginStatus();
 
 	$refer = strToLower($connection->escape_string(basename($_SERVER["HTTP_REFERER"])));
-	
+
 	$page = $_POST["name"];
 	if (!($status & $LoginStatusCanEdit)) {
 		header("Location: nope.php");
 		die();
 	}
 
-	require("head.php"); 
+	require("head.php");
 ?>
 
 
@@ -30,8 +30,13 @@
    	<div class="hero-unit" id="hero-unit">
 		<?php
 		if ($page != "") {
+			$page = basename($page, ".php");
+
 			$query = "SELECT * FROM `special_pages` WHERE `name` = '$page'";
 			$result = $connection->query($query);
+
+			$page = "$page.php";
+
 			if ($result->num_rows) die("Cannot delete reserved page \"$page\"");
 
 			if (file_exists($page)) {

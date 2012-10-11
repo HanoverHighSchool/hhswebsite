@@ -11,6 +11,7 @@ $connection = new mysqli($mysql_host, $mysql_user, $mysql_pass, $mysql_data) or 
 register_shutdown_function("exiting");
 
 function exiting() {
+   record();
    mysqli_close($connection);
 }
 
@@ -53,6 +54,7 @@ function loginStatus($username = NULL, $passhash = NULL) {
 
       if ($statement->fetch() === false)
          $ret = $ret | $LoginStatusUserPass;
+      $statement->close();
    }
 
    $access = intVal($access);
@@ -106,31 +108,33 @@ function getElement($num) {
 
    $num = intVal($num);
 
-   $query = "SELECT `value`" . ($globalLogin & $LoginStatusSeeMore ? ", `lastUpdate`, `lastUser`, `lastIP` " : " ") . "FROM `$pagename-index` WHERE `field` = $num;";
+   $query = "SELECT `value`, `type`, `color`" . ($globalLogin & $LoginStatusSeeMore ? ", `lastUpdate`, `lastUser`, `lastIP` " : " ") . "FROM `$pagename-index` WHERE `field` = $num;";
 
    $value = null;
+   $type = null;
+   $color = null;
    $lastUpdate = null;
    $lastUser = null;
    $lastIP = null;
    if ($statement = $connection->prepare($query)) {
       $statement->execute();
       if ($globalLogin & $LoginStatusSeeMore)
-         $statement->bind_result($value, $lastUpdate, $lastUser, $lastIP);
+         $statement->bind_result($value, $type, $color, $lastUpdate, $lastUser, $lastIP);
       else
-         $statement->bind_result($value);
+         $statement->bind_result($value, $type, $color);
 
       $result = $connection->query($query);
 
       if ($statement->fetch() === false)
-         return array("text" => "");
+         return array("text" => "", "type" => "text", "color" => "000000");
       $statement->close();
    } else
-      return array("text" => "");
+      return array("text" => "", "type" => "text", "color" => "000000");
 
    if ($globalLogin & $LoginStatusSeeMore)
-      return array("text" => $value, "lastUpdate" => $lastUpdate, "lastUser" => $lastUser, "lastIP" => $lastIP);
+      return array("text" => $value, "type" => $type, "color" => $color, "lastUpdate" => $lastUpdate, "lastUser" => $lastUser, "lastIP" => $lastIP);
    else
-      return array("text" => $value);
+      return array("text" => $value, "type" => $type, "color" => $color);
 }
 
 function getAllElements($page = NULL) {
@@ -140,10 +144,12 @@ function getAllElements($page = NULL) {
 
    $pagename = strToLower($connection->escape_string(basename($page, ".php")));
 
-   $query = "SELECT `field`, `value`" . ($globalLogin & $LoginStatusSeeMore ? ", `lastUpdate`, `lastUser`, `lastIP` " : " ") . "FROM `$pagename-index`";
+   $query = "SELECT `field`, `value`, `type`, `color`" . ($globalLogin & $LoginStatusSeeMore ? ", `lastUpdate`, `lastUser`, `lastIP` " : " ") . "FROM `$pagename-index`";
 
    $value = null;
    $number = null;
+   $type = null;
+   $color = null;
    $lastUpdate = null;
    $lastUser = null;
    $lastIP = null;
@@ -151,16 +157,16 @@ function getAllElements($page = NULL) {
    if ($statement = $connection->prepare($query)) {
       $statement->execute();
       if ($globalLogin & $LoginStatusSeeMore)
-         $statement->bind_result($number, $value, $lastUpdate, $lastUser, $lastIP);
+         $statement->bind_result($number, $value, $type, $color, $lastUpdate, $lastUser, $lastIP);
       else
-         $statement->bind_result($number, $value);
+         $statement->bind_result($number, $value, $type, $color);
 
       $returns = 0;
       while ($statement->fetch()) {
          if ($globalLogin & $LoginStatusSeeMore)
-            $return[$returns ++] = array("text" => $value, "number" => $number, "lastUpdate" => $lastUpdate, "lastUser" => $lastUser, "lastIP" => $lastIP);
+            $return[$returns ++] = array("text" => $value, "type" => $type, "color" => $color, "number" => $number, "lastUpdate" => $lastUpdate, "lastUser" => $lastUser, "lastIP" => $lastIP);
          else
-            $return[$returns ++] = array("text" => $value, "number" => $number);
+            $return[$returns ++] = array("text" => $value, "number" => $number, "type" => $type, "color" => $color);
       }
       $statement->close();
    } else
@@ -189,14 +195,13 @@ function record() {
          $query = "INSERT INTO `hits` (`hits`, `ip`, `firstHit`) VALUES (0, '$ip', CURRENT_TIMESTAMP)";
          $connection->query($query);
       }
+      $statement->close();
    }
 
    $hits = intVal($hits) + 1;
 
-   $query = "UPDATE `hits` SET `hits` = '$hits', `lastHit` = CURRENT_TIMESTAMP WHERE `ip` = '$ip' LIMIT 1;";
+   $query = "UPDATE `hits` SET `hits` = $hits, `lastHit` = CURRENT_TIMESTAMP WHERE `ip` = '$ip' LIMIT 1";
    $connection->query($query);
 }
-
-record();
 
 ?>
