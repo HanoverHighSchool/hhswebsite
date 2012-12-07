@@ -156,6 +156,7 @@ echo("var tags = " . count($all) . ";\n");
 								</a>
 								<ul class="dropdown-menu">
 									<li><a href="http://www.hanoverhigh.us/Hanover/calendar.html">Calendar</a></li>
+									<li><a href="http://www.usatodayhss.com/search?q=hanover%2C+nh&amp;zipCode=&amp;filters=teams">Sports Schedule</a></li>
 									<li><a href="http://hanoverhigh.us/Hanover/sports.html">Sports Home</a></li>
 								</ul>
 							</li>
@@ -170,7 +171,6 @@ echo("var tags = " . count($all) . ";\n");
 									<li><a href="http://hanoverhigh.us/Hanover/happenings.html">Happenings</a></li>
 									<li><a href="http://intensive.dresden.us/">March Intensive</a></li>
 									<li><a href="http://www.hhspenofiron.blogspot.com/">Pen of Iron</a></li>
-									<li><a href="http://www.usatodayhss.com/search?q=hanover%2C+nh&amp;zipCode=&amp;filters=teams">Sports Schedule</a></li>
 									<li><a href="http://greenteam.dresden.us/">Hanover Recycles</a></li>
 
 								</ul>
